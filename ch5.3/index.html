@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../d3/d3.js"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var dataset = [10, 10, 30, 60, 19];
+        d3.select("body").selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("p")
+            .text(function(d) {
+                return "来吃豆豆: " + d;
+            }); //接收d为输入的匿名函数，
+    </script>
+</body>
+
+</html>
