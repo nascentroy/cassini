@@ -1,0 +1,47 @@
+p {
+    font-size: 10px;
+    font-family: helvetica;
+}
+
+#chartTitle {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 40px;
+
+
+}
+
+.data p {
+
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px
+}
+
+.data {
+   /*  width: 500px; */
+    text-align: center;
+    /* margin-left: 130px; */
+}
+
+#dashboard {
+
+    width: 300;
+    border: 1px solid black;
+
+}
+
+.bar {
+
+    text-align: center;
+}
+
+.bar div {
+    display: inline-block;
+    width: 10px;
+    /* height: 75px; */
+    /* Gets overridden by D3-assigned height below */
+    margin-right: 30px;
+    padding: 10px;
+    background-color: teal;
+}
