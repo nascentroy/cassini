@@ -1,7 +1,6 @@
 var w = 1000;
 var h = 100;
 var padding = 10;
-
 var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [330, 95], [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]];
 
 var svg = d3.select("body")
@@ -21,6 +20,8 @@ var rScale = d3.scale.linear()
 .domain([0,d3.max(dataset,function(d){return d[1];})])
 .range([3,10]);
 
+
+//散点
 svg.selectAll("circle")
 .data(dataset)
 .enter()
@@ -36,7 +37,7 @@ svg.selectAll("circle")
         return rScale(d[1]);
     }
 });
-
+//标签
 svg.selectAll("text")
 .data(dataset)
 .enter()
