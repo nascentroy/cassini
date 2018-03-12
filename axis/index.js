@@ -5,14 +5,14 @@ var padding = 20;
 //var dataset = [[5, 20], [480, 90], [250, 50], [100, 33], [150, 150], [330, 95], [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]];
 
 //随机数据
-var dataset =[];
+var dataset = [];
 var numDataPoints = 50;
-var xRange = Math.random()*1000;
-var yRange = Math.random()*1000;
-for(var i = 0; i< numDataPoints;i++){
-    var newNumber1 = Math.floor(Math.random()* xRange);
-    var newNumber2 = Math.floor(Math.random()* yRange);
-    dataset.push([newNumber1,newNumber2]);
+var xRange = Math.random() * 1000;
+var yRange = Math.random() * 1000;
+for (var i = 0; i < numDataPoints; i++) {
+    var newNumber1 = Math.floor(Math.random() * xRange);
+    var newNumber2 = Math.floor(Math.random() * yRange);
+    dataset.push([newNumber1, newNumber2]);
 }
 
 
@@ -42,7 +42,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left")
-    .ticks(5);//刻度树 D3显示时会作为参考值
+    .ticks(5); //刻度树 D3显示时会作为参考值
 //svg
 
 var svg = d3.select("body")
@@ -68,7 +68,7 @@ svg.selectAll("circle")
             return rScale(d[1]);
         },
         fill: function (d) {
-            return "rgb(0," + (d[1]+10) + "," + (d[1]+10) + ")";
+            return "rgb(0," + (d[1] + 10) + "," + (d[1] + 10) + ")";
         }
     });
 
@@ -101,4 +101,3 @@ svg.append("g")
     .call(yAxis)
     .attr("class", "axis")
     .attr("transform", "translate(" + 2 * padding + ",0)");
-    
