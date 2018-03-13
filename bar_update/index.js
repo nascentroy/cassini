@@ -1,4 +1,8 @@
 var dataset = [20, 10, 30, 10, 50, 60, 90, 55, 100];
+
+
+
+
 var w = 500;
 var h = 500;
 var barPadding = 8;
@@ -65,29 +69,46 @@ svg.selectAll("text")
 
     })
     .attr("font-family", "sans-serif")
-    .attr("font-size", "11px");
+    .attr("font-size", "10px");
 
 d3.select("p")
     .on("click", function () {
 
-        dataset = [10, 30, 30, 100, 99, 24, 65, 74, 82];
+        var numValues = dataset.length;
+        dataset = [];
+        for (var i = 0; i < numValues; i++) {
+
+            var newNumber = Math.floor(Math.random() * 25)+1;
+            dataset.push(newNumber);
+        }
+        yScale.domain([0,d3.max(dataset)]);
         svg.selectAll("rect")
             .data(dataset)
+            .transition() //过渡动画
+            .delay(function (d, i) {
+                return i * 1000;
+            })
+            .duration(5000)
             .attr({
                 y: function (d) {
                     return h - yScale(d);
                 },
                 height: function (d) {
                     return yScale(d);
-                },
-                fill: function (d) {
-                    return "rgb(" + d * 1 + "," + d * 2 + "," + d * 3 + ")";
                 }
+                
             });
 
 
         svg.selectAll("text")
             .data(dataset)
+            .transition() //过渡动画
+            .delay(function (d, i) {
+                return i * 1000;
+            })
+            .duration(5000) //持续时间 1000ms = 1s
+            //            .ease("bounce")
+
             .text(function (d) {
                 return d;
             })
@@ -95,7 +116,7 @@ d3.select("p")
 
                 {
                     y: function (d) {
-                        return h - yScale(d) + 14;
+                        return h - yScale(d) + 15;
                     },
                     height: function (d) {
                         return yScale(d);
@@ -104,5 +125,7 @@ d3.select("p")
                     fill: "white"
 
                 })
+            .attr("font-family","sans-serif")
+            .attr("font-size","10px")
 
     })
